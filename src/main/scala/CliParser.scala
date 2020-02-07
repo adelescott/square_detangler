@@ -11,13 +11,10 @@ case class CliParser(arguments: Seq[String]) extends ScallopConf(arguments) {
     descr = "Square transactions filename.",
     required = true
   )
-  val outputSquareDepositsFilename: ScallopOption[String] = opt[String](
-    descr = "Coalesced (output) Square deposits filename.",
-    default = Some("detangled_square_deposits.csv")
-  )
-  val outputSquareTransactionsFilename: ScallopOption[String] = opt[String](
-    descr = "Coalesced (output) Square transactions filename.",
-    default = Some("detangled_square_transactions.csv")
+  val outputDir: ScallopOption[String] = opt[String](
+    short = 'o',
+    descr = "Directory to write detangled deposits and transactions files to.",
+    default = Some(".")
   )
   verify()
 }

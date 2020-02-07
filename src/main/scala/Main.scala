@@ -21,7 +21,7 @@ object Main extends App {
   squareDepositDetailsReadResult match {
     case Right(squareDepositDetails) =>
       val squareDeposits = SquareDeposit.coalesceDepositDetails(squareDepositDetails)
-      val outputFile = new File(cliParser.outputSquareDepositsFilename())
+      val outputFile = new File(cliParser.outputDir() + "/detangled_square_deposits.csv")
       try {
         outputFile.writeCsv[SquareDeposit](
           squareDeposits,
@@ -36,7 +36,7 @@ object Main extends App {
   squareTransactionsReadResult match {
     case Right(squareTransactionRows) =>
       val squareTransactions = squareTransactionRows.flatMap(_.toSquareTransactions)
-      val outputFile = new File(cliParser.outputSquareTransactionsFilename())
+      val outputFile = new File(cliParser.outputDir() + "/detangled_square_transactions.csv")
       try {
         outputFile.writeCsv[SquareTransaction](
           squareTransactions,
