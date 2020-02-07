@@ -13,11 +13,11 @@ case class CliParser(arguments: Seq[String]) extends ScallopConf(arguments) {
   )
   val outputSquareDepositsFilename: ScallopOption[String] = opt[String](
     descr = "Coalesced (output) Square deposits filename.",
-    default = Some("consolidated_square_deposits.csv")
+    default = Some("detangled_square_deposits.csv")
   )
   val outputSquareTransactionsFilename: ScallopOption[String] = opt[String](
     descr = "Coalesced (output) Square transactions filename.",
-    default = Some("consolidated_square_transactions.csv")
+    default = Some("detangled_square_transactions.csv")
   )
   verify()
 }
