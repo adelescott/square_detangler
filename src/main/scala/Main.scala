@@ -43,8 +43,8 @@ object Main extends App {
           rfc.withHeader("Date", "Reference", "Payee", "Description", "Amount")
         )
       } catch {
-        case err: Exception => println(s"Error(s) detangling Square transactions:\n${err.toString}")
+        case err: Exception => println(s"Error(s) detangling Square transactions:\n${err.toString}\nNo output file written.")
       }
-    case Left(error) => println(s"Error(s) detangling Square transactions: $error")
+    case Left(error) => println(s"Error(s) detangling Square transactions: $error\nNo output file written.")
   }
 }
