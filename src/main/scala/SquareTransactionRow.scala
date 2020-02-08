@@ -1,7 +1,7 @@
 import java.text.SimpleDateFormat
 import java.util.Date
 
-import kantan.csv.RowDecoder
+import kantan.csv.HeaderDecoder
 
 case class SquareTransactionRow(
   date: Date,
@@ -16,8 +16,8 @@ case class SquareTransactionRow(
 }
 
 object SquareTransactionRow {
-  implicit val squareTransactionRowDecoder: RowDecoder[SquareTransactionRow] =
-    RowDecoder.decoder(0, 9, 18, 28) { (
+  implicit val squareTransactionRowDecoder: HeaderDecoder[SquareTransactionRow] =
+    HeaderDecoder.decoder("Date", "Total Collected", "Fees", "Description") { (
       date: String,
       saleAmount: String,
       creditCardPaymentFees: String,
