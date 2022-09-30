@@ -30,7 +30,7 @@ object SquareDeposit {
     }
 
   def stringToDate(str: String): Date = {
-    val format = new SimpleDateFormat("dd/MM/yy")
+    val format = new SimpleDateFormat("yyyy-MM-dd")
     format.parse(str)
   }
 
