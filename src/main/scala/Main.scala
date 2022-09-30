@@ -10,7 +10,7 @@ object Main extends App {
     file.asCsvReader[A](rfc.withHeader()).toList
   }
 
-  val cliParser = CliParser(args)
+  val cliParser = CliParser(args.toIndexedSeq)
 
   val squareDepositDetailsReadResults =
     readCsv[SquareDeposit](cliParser.squareDepositDetailsFilename())
